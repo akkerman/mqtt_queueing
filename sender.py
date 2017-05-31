@@ -26,7 +26,7 @@ def on_connect(client, userdata, flags, rc):
     client.subscribe("messages", 1)
 
 def on_disconnect(client, userdata, rc):
-    sys.exit()
+    sys.exit(rc)
 
 def on_publish(client, userdata, mid):
     print("message published", mid)

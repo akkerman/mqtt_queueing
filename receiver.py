@@ -28,7 +28,7 @@ def on_message(client, userdata, msg):
     print("got message: ", msg.payload)
 
 def on_disconnect(client, userdata, rc):
-    sys.exit()
+    sys.exit(rc)
 
 client = setup_mqtt()
 while killer.cont:
