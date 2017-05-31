@@ -1,0 +1,7 @@
+requests
+pymongo
+paho-mqtt
+mqtthandler
+simplejson
+pytz
+
