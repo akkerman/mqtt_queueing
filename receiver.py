@@ -21,7 +21,7 @@ def setup_mqtt():
 
 def on_connect(client, userdata, flags, rc):
     print("connected to mqtt")
-    client.subscribe("messages", 1)
+    client.subscribe("messages", 2)
     connected = True
 
 def on_message(client, userdata, msg):

@@ -23,7 +23,7 @@ def setup_mqtt():
 
 def on_connect(client, userdata, flags, rc):
     print("connected to mqtt")
-    client.subscribe("messages", 1)
+    client.subscribe("messages", 2)
 
 def on_disconnect(client, userdata, rc):
     sys.exit(rc)
@@ -36,7 +36,7 @@ client = setup_mqtt()
 while killer.cont:
     client.loop()
     current = current + 1
-    client.publish("messages", current, 1)
+    client.publish("messages", current, 2)
     time.sleep(2)
 
 client.disconnect()
