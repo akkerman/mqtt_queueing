@@ -4,6 +4,7 @@ import sys
 from killer import Killer
 import paho.mqtt.client as mqtt
 import mqtthandler
+import time
 
 killer = Killer()
 
@@ -25,7 +26,7 @@ def on_connect(client, userdata, flags, rc):
     connected = True
 
 def on_message(client, userdata, msg):
-    print("got message: ", msg.payload)
+    print(time.strftime("%M:%S"), "got message ", msg.payload)
 
 def on_disconnect(client, userdata, rc):
     sys.exit(rc)
