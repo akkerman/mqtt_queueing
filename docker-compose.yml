@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  mqtt:
+    image: eclipse-mosquitto
+    container_name: "queue_mqtt"
+    ports:
+      - 9001:9003
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+
+  sender:
+    build: .
+    container_name: "queue_send"
+    command: ["./sender.py"]
+    depends_on: 
+      - mqtt
+    volumes:
+      - .:/usr/src/app
+
+  receiver:
+    build: .
+    container_name: "queue_recv"
+    command: ["./receiver.py"]
+    depends_on:
+      - mqtt
+    volumes:
+      - .:/usr/src/app
+
+
